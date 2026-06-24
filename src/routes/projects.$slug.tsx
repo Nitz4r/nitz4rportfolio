@@ -39,7 +39,7 @@ export const Route = createFileRoute("/projects/$slug")({
 });
 
 function ProjectDetail() {
-  const { project: p } = Route.useLoaderData();
+  const { project: p } = Route.useLoaderData() as { project: Project };
 
   return (
     <TerminalShell path={`/projects/${p.slug}`}>
