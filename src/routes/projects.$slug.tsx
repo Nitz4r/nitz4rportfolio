@@ -6,7 +6,7 @@ import type { Project } from "@/lib/portfolio-data";
 import { PROJECTS } from "@/lib/portfolio-data";
 
 export const Route = createFileRoute("/projects/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): { project: Project } => {
     const project = PROJECTS.find((p) => p.slug === params.slug);
     if (!project) throw notFound();
     return { project };
