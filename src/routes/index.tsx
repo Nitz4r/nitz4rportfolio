@@ -74,7 +74,7 @@ function Index() {
           <Typewriter text="Roblox Gameplay Programmer" speed={36} delay={900} cursor />
         </div>
         <div className="text-terminal-dim text-xs sm:text-sm mt-2">
-          // 4+ years building gameplay systems
+          // 3+ years building gameplay systems
         </div>
 
         {/* Specialized in */}
