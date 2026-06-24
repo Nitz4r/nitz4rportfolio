@@ -126,7 +126,7 @@ function ProjectDetail() {
   );
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="term-panel rounded-sm p-5">
       <div className="text-terminal-dim text-xs uppercase tracking-widest mb-3">
