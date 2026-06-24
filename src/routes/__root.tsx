@@ -14,21 +14,19 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div className="min-h-screen flex items-center justify-center px-4 font-mono">
+      <div className="max-w-lg w-full term-panel p-6 rounded-sm">
+        <div className="text-terminal-dim text-xs mb-3">// segmentation fault</div>
+        <div className="text-terminal-bright term-glow text-3xl font-bold mb-2">ERR 0x404</div>
+        <p className="text-terminal-dim text-sm mb-5">
+          requested path not found in filesystem. the file may have been moved or classified.
         </p>
-        <div className="mt-6">
-          <Link
-            to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Go home
-          </Link>
-        </div>
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 text-terminal hover:text-terminal-bright transition-colors"
+        >
+          <span>&gt;</span> return home
+        </Link>
       </div>
     </div>
   );
@@ -42,29 +40,22 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
-        </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+    <div className="min-h-screen flex items-center justify-center px-4 font-mono">
+      <div className="max-w-lg w-full term-panel p-6 rounded-sm">
+        <div className="text-destructive text-xs mb-3">// runtime exception</div>
+        <div className="text-terminal-bright term-glow text-2xl font-bold mb-2">SYSTEM FAULT</div>
+        <p className="text-terminal-dim text-sm mb-5">
+          an unexpected error interrupted the session. you may retry or return home.
         </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
+        <div className="flex flex-wrap gap-4">
           <button
-            onClick={() => {
-              router.invalidate();
-              reset();
-            }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            onClick={() => { router.invalidate(); reset(); }}
+            className="text-terminal hover:text-terminal-bright transition-colors"
           >
-            Try again
+            &gt; retry
           </button>
-          <a
-            href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-          >
-            Go home
+          <a href="/" className="text-terminal-dim hover:text-terminal-bright transition-colors">
+            &gt; home
           </a>
         </div>
       </div>
@@ -77,20 +68,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "NITZER // Roblox Gameplay Programmer" },
+      { name: "description", content: "Portfolio of Nitzer — Roblox gameplay programmer specializing in combat, movement, multiplayer architecture, OOP frameworks, and UI systems." },
+      { name: "author", content: "Nitzer" },
+      { property: "og:title", content: "NITZER // Roblox Gameplay Programmer" },
+      { property: "og:description", content: "Combat, movement, networking, OOP, and UI systems for Roblox." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -101,12 +91,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="bg-background text-foreground crt-flicker">
         {children}
+        {/* CRT effects */}
+        <div className="crt-overlay" aria-hidden />
+        <div className="crt-vignette" aria-hidden />
+        <div className="scan-line" aria-hidden />
         <Scripts />
       </body>
     </html>
@@ -115,10 +109,8 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );
