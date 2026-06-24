@@ -1,6 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 import { TerminalShell } from "@/components/TerminalShell";
 import { GlitchHeading } from "@/components/GlitchHeading";
+import type { Project } from "@/lib/portfolio-data";
 import { PROJECTS } from "@/lib/portfolio-data";
 
 export const Route = createFileRoute("/projects/$slug")({
