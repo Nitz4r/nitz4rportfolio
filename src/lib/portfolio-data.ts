@@ -1,3 +1,8 @@
+export type MediaItem =
+  | { type: "image"; src: string; alt?: string; caption?: string }
+  | { type: "youtube"; id: string; title?: string; caption?: string }
+  | { type: "placeholder"; kind: "image" | "video"; label: string };
+
 export interface Project {
   slug: string;
   code: string;
@@ -8,7 +13,7 @@ export interface Project {
   description: string;
   features: string[];
   technologies: string[];
-  media: { type: "image" | "video"; label: string }[];
+  media: MediaItem[];
 }
 
 export const PROJECTS: Project[] = [
