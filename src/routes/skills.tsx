@@ -41,8 +41,7 @@ export default function SkillsPage() {
       </div>
 
       <div className="mt-8 text-xs text-terminal-dim">
-        <span className="text-terminal">&gt;</span> end of module list. type{" "}
-        <span className="text-terminal-bright">open projects</span> to see them applied.
+        <span className="text-terminal">&gt;</span> end of module list
       </div>
     </TerminalShell>
   );
