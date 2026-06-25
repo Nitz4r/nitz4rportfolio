@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import type { ReactNode } from "react";
 import { TerminalShell } from "@/components/TerminalShell";
 import { GlitchHeading } from "@/components/GlitchHeading";
+import { MediaGallery } from "@/components/MediaGallery";
 import { PROJECTS } from "@/lib/portfolio-data";
 import { usePageMeta } from "@/lib/use-page-meta";
 
@@ -60,29 +61,11 @@ export default function ProjectDetail() {
             </ul>
           </Section>
 
-          <Section title="media">
-            <div className="grid sm:grid-cols-2 gap-3">
-              {p.media.map((m, i) => (
-                <div
-                  key={i}
-                  className="aspect-video term-border rounded-sm flex flex-col items-center justify-center text-terminal-dim text-xs relative overflow-hidden"
-                  style={{
-                    backgroundImage:
-                      "repeating-linear-gradient(45deg, color-mix(in oklab, var(--terminal) 4%, transparent) 0 6px, transparent 6px 12px)",
-                  }}
-                >
-                  <div className="text-terminal text-2xl mb-1">
-                    {m.type === "video" ? "▶" : "▦"}
-                  </div>
-                  <div className="uppercase tracking-wider">{m.type}</div>
-                  <div className="text-terminal mt-1">{m.label}</div>
-                  <div className="absolute bottom-1 right-2 text-[10px]">
-                    NO-SIGNAL · stub
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Section>
+          {p.media.length > 0 && (
+            <Section title="media">
+              <MediaGallery items={p.media} />
+            </Section>
+          )}
         </div>
 
         <aside className="space-y-6">
