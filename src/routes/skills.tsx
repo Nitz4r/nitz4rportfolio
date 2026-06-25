@@ -1,21 +1,14 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { TerminalShell } from "@/components/TerminalShell";
 import { GlitchHeading } from "@/components/GlitchHeading";
 import { SKILLS } from "@/lib/portfolio-data";
+import { usePageMeta } from "@/lib/use-page-meta";
 
-export const Route = createFileRoute("/skills")({
-  head: () => ({
-    meta: [
-      { title: "Skills // NITZER" },
-      { name: "description", content: "Loaded developer modules — Luau, networking, OOP architecture, combat, movement, UI, performance." },
-      { property: "og:title", content: "Skills // NITZER" },
-      { property: "og:description", content: "Loaded developer modules." },
-    ],
-  }),
-  component: SkillsPage,
-});
+export default function SkillsPage() {
+  usePageMeta({
+    title: "Skills // NITZER",
+    description: "Loaded developer modules — Luau, networking, OOP architecture, combat, movement, UI, performance.",
+  });
 
-function SkillsPage() {
   return (
     <TerminalShell path="/skills">
       <div className="mb-8">

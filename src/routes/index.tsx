@@ -1,20 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { TerminalShell } from "@/components/TerminalShell";
 import { Typewriter } from "@/components/Typewriter";
 import { GlitchHeading } from "@/components/GlitchHeading";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "NITZER // Roblox Gameplay Programmer" },
-      { name: "description", content: "Combat, movement, multiplayer, OOP and UI systems for Roblox — by Nitzer." },
-      { property: "og:title", content: "NITZER // Roblox Gameplay Programmer" },
-      { property: "og:description", content: "Live developer workstation — portfolio of a Roblox gameplay programmer." },
-    ],
-  }),
-  component: Index,
-});
+import { usePageMeta } from "@/lib/use-page-meta";
 
 const BOOT = [
   "[ OK ] mounting /dev/portfolio",
@@ -38,7 +27,12 @@ const COMMANDS = [
   { cmd: "open contact", to: "/contact", note: "// initiate connection" },
 ] as const;
 
-function Index() {
+export default function Index() {
+  usePageMeta({
+    title: "NITZER // Roblox Gameplay Programmer",
+    description: "Combat, movement, multiplayer, OOP and UI systems for Roblox — by Nitzer.",
+  });
+
   const [bootStep, setBootStep] = useState(0);
   useEffect(() => {
     const id = setInterval(() => {
@@ -49,7 +43,6 @@ function Index() {
 
   return (
     <TerminalShell path="/home">
-      {/* Boot log */}
       <section className="text-xs sm:text-sm text-terminal-dim space-y-0.5 mb-10 font-mono">
         {BOOT.slice(0, bootStep).map((line, i) => (
           <div key={i} className="fade-up">
@@ -59,7 +52,6 @@ function Index() {
         ))}
       </section>
 
-      {/* Identity card */}
       <section className="text-center py-8 sm:py-14">
         <div className="text-xs text-terminal-dim mb-4 tracking-widest">
           ── identity verified ──
@@ -77,7 +69,6 @@ function Index() {
           // 3+ years building gameplay systems
         </div>
 
-        {/* Specialized in */}
         <div className="mt-12 inline-block text-left term-panel rounded-sm p-5 sm:p-6 min-w-[18rem]">
           <div className="text-terminal-dim text-xs mb-3">$ cat /etc/specializations</div>
           <div className="text-terminal-bright term-glow text-sm mb-2">Specialized in:</div>
@@ -92,7 +83,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Command prompt */}
       <section className="mt-10 sm:mt-14 max-w-2xl mx-auto">
         <div className="text-terminal-dim text-xs mb-3 text-center">── available commands ──</div>
         <div className="term-panel rounded-sm p-5 sm:p-6 space-y-2">

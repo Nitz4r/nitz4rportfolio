@@ -1,19 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { TerminalShell } from "@/components/TerminalShell";
 import { GlitchHeading } from "@/components/GlitchHeading";
-
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact // NITZER" },
-      { name: "description", content: "Initiate connection — Discord, email, GitHub." },
-      { property: "og:title", content: "Contact // NITZER" },
-      { property: "og:description", content: "Initiate connection." },
-    ],
-  }),
-  component: ContactPage,
-});
+import { usePageMeta } from "@/lib/use-page-meta";
 
 const CONTACTS = [
   {
@@ -39,7 +27,12 @@ const CONTACTS = [
   },
 ] as const;
 
-function ContactPage() {
+export default function ContactPage() {
+  usePageMeta({
+    title: "Contact // NITZER",
+    description: "Initiate connection — Discord, email, GitHub.",
+  });
+
   const [copied, setCopied] = useState<string | null>(null);
 
   const copy = (v: string) => {

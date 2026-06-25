@@ -1,18 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { TerminalShell } from "@/components/TerminalShell";
 import { GlitchHeading } from "@/components/GlitchHeading";
-
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About // NITZER" },
-      { name: "description", content: "Developer profile — Nitzer, a Roblox gameplay programmer focused on combat, movement, and multiplayer systems." },
-      { property: "og:title", content: "About // NITZER" },
-      { property: "og:description", content: "Developer profile of Nitzer." },
-    ],
-  }),
-  component: AboutPage,
-});
+import { usePageMeta } from "@/lib/use-page-meta";
 
 const PROFILE = [
   ["Role", "Roblox Gameplay Programmer"],
@@ -30,7 +18,12 @@ const BIO = [
   "I care about strict typing, observable systems, and writing code that another programmer can read at 2am and not curse my name.",
 ];
 
-function AboutPage() {
+export default function AboutPage() {
+  usePageMeta({
+    title: "About // NITZER",
+    description: "Developer profile — Nitzer, a Roblox gameplay programmer focused on combat, movement, and multiplayer systems.",
+  });
+
   return (
     <TerminalShell path="/about">
       <div className="mb-8">

@@ -1,19 +1,8 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { TerminalShell } from "@/components/TerminalShell";
 import { GlitchHeading } from "@/components/GlitchHeading";
 import { PROJECTS } from "@/lib/portfolio-data";
-
-export const Route = createFileRoute("/projects")({
-  head: () => ({
-    meta: [
-      { title: "Projects // NITZER" },
-      { name: "description", content: "Classified project files — combat, movement, netcode, UI and OOP systems for Roblox." },
-      { property: "og:title", content: "Projects // NITZER" },
-      { property: "og:description", content: "Classified project dossiers from a Roblox gameplay programmer." },
-    ],
-  }),
-  component: ProjectsPage,
-});
+import { usePageMeta } from "@/lib/use-page-meta";
 
 const statusColor: Record<string, string> = {
   COMPLETE: "text-terminal-bright",
@@ -22,7 +11,12 @@ const statusColor: Record<string, string> = {
   ARCHIVED: "text-terminal-dim",
 };
 
-function ProjectsPage() {
+export default function ProjectsPage() {
+  usePageMeta({
+    title: "Projects // NITZER",
+    description: "Classified project files — combat, movement, netcode, UI and OOP systems for Roblox.",
+  });
+
   return (
     <TerminalShell path="/projects">
       <div className="mb-8">
@@ -37,8 +31,7 @@ function ProjectsPage() {
         {PROJECTS.map((p, i) => (
           <Link
             key={p.slug}
-            to="/projects/$slug"
-            params={{ slug: p.slug }}
+            to={`/projects/${p.slug}`}
             className="group term-panel rounded-sm p-5 transition-all hover:border-terminal hover:shadow-[0_0_20px_color-mix(in_oklab,var(--terminal)_25%,transparent)] fade-up flex flex-col"
             style={{ animationDelay: `${i * 0.05}s` }}
           >

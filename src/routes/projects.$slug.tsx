@@ -1,45 +1,32 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { Link, useParams } from "react-router-dom";
 import type { ReactNode } from "react";
 import { TerminalShell } from "@/components/TerminalShell";
 import { GlitchHeading } from "@/components/GlitchHeading";
-import type { Project } from "@/lib/portfolio-data";
 import { PROJECTS } from "@/lib/portfolio-data";
+import { usePageMeta } from "@/lib/use-page-meta";
 
-export const Route = createFileRoute("/projects/$slug")({
-  loader: ({ params }): { project: Project } => {
-    const project = PROJECTS.find((p) => p.slug === params.slug);
-    if (!project) throw notFound();
-    return { project };
-  },
-  head: ({ loaderData }) => {
-    const p = loaderData?.project;
-    const title = p ? `${p.name} // NITZER` : "Project // NITZER";
-    const desc = p?.summary ?? "Project dossier.";
-    return {
-      meta: [
-        { title },
-        { name: "description", content: desc },
-        { property: "og:title", content: title },
-        { property: "og:description", content: desc },
-      ],
-    };
-  },
-  notFoundComponent: () => (
-    <TerminalShell path="/projects/?">
-      <div className="term-panel p-6 rounded-sm">
-        <div className="text-destructive text-xs mb-2">// ERR 0x404</div>
-        <div className="text-terminal-bright term-glow text-2xl mb-2">FILE NOT FOUND</div>
-        <Link to="/projects" className="text-terminal hover:text-terminal-bright">
-          &gt; return to index
-        </Link>
-      </div>
-    </TerminalShell>
-  ),
-  component: ProjectDetail,
-});
+export default function ProjectDetail() {
+  const { slug } = useParams<{ slug: string }>();
+  const p = PROJECTS.find((x) => x.slug === slug);
 
-function ProjectDetail() {
-  const { project: p } = Route.useLoaderData() as { project: Project };
+  usePageMeta({
+    title: p ? `${p.name} // NITZER` : "Project // NITZER",
+    description: p?.summary ?? "Project dossier.",
+  });
+
+  if (!p) {
+    return (
+      <TerminalShell path="/projects/?">
+        <div className="term-panel p-6 rounded-sm">
+          <div className="text-destructive text-xs mb-2">// ERR 0x404</div>
+          <div className="text-terminal-bright term-glow text-2xl mb-2">FILE NOT FOUND</div>
+          <Link to="/projects" className="text-terminal hover:text-terminal-bright">
+            &gt; return to index
+          </Link>
+        </div>
+      </TerminalShell>
+    );
+  }
 
   return (
     <TerminalShell path={`/projects/${p.slug}`}>
@@ -47,7 +34,6 @@ function ProjectDetail() {
         &lt; back to /projects
       </Link>
 
-      {/* Header */}
       <div className="border-l-2 border-terminal pl-4 mb-8">
         <div className="text-terminal-dim text-xs mb-1">
           {p.code} · classification: {p.classification} ·{" "}
