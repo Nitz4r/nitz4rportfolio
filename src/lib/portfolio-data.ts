@@ -13,26 +13,27 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    slug: "combat-framework",
+    slug: "combat-system",
     code: "PRJ-001",
-    name: "COMBAT FRAMEWORK",
+    name: "Combat System",
     status: "COMPLETE",
     classification: "core-system",
-    summary: "Hit-reg, stamina, weapon archetype, and combo engine for action games.",
+    summary: "Hit-reg, weapon archetype, combo system, block/parry, state management system and weapon abilities.",
     description:
-      "A modular combat system built around an OOP weapon archetype. Server-authoritative hit detection with client-side prediction, parry/stagger windows, stamina + posture economy, and a data-driven combo graph that designers extend without touching code.",
+      "A modular combat framework designed for extensibility and long-term maintainability. Built around an OOP weapon architecture with client-side hit detection, server-side validation, and a data-driven ability system that enables new weapons, skills, and mechanics to be added with minimal code changes.",
     features: [
-      "server-authoritative hit-reg with lag compensation",
-      "weapon archetype with composable modifiers",
-      "stamina & posture economy",
-      "combo graph driven by data modules",
-      "hit-stop, screen shake, and procedural recoil",
+      "Modular weapon archetypes with composable abilities",
+      "Client-side hit detection with server-side validation",
+      "State management for combat flow",
+      "Parry, block, combo, and stun mechanics",
+      "Data-driven weapon configuration",
+      "Shared framework for players and NPCs",
+      "Cooldown and resource management",
+      "Status effects and temporary modifiers",
     ],
-    technologies: ["Luau", "Roblox raycasting", "RemoteEvents", "OOP", "Janitor"],
+    technologies: ["Luau", "OOP", "Zap Networker", "Trove", "Vide", "Matter ECS"],
     media: [
-      { type: "video", label: "combo system demo" },
-      { type: "image", label: "weapon archetype diagram" },
-      { type: "image", label: "stagger feedback" },
+      { type: "video", label: "combo system" },
     ],
   },
   {
@@ -152,5 +153,5 @@ export const SKILLS = [
   { name: "OOP ARCHITECTURE", note: "class systems, DI, lifecycle, mixins" },
   { name: "UI DEVELOPMENT", note: "declarative runtimes, scalable UI architecture." },
   { name: "PERFORMANCE OPTIMIZATION", note: "profiling, batching, allocation control" },
-  { name: "TOOLING", note: "VSCode, Rojo, Wally, GitHub Actions, Vide (ui), Zap (Networking)" },
+  { name: "TOOLING", note: "VSCode, Rojo, Wally, GitHub Actions, Matter ECS, Vide (ui), Zap (Networking)" },
 ] as const;

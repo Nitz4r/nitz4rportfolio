@@ -30,7 +30,7 @@ const COMMANDS = [
 
 export default function Index() {
   usePageMeta({
-    title: "Nitz4r // Roblox Programmer",
+    title: "Nitz4r // Roblox FullstackProgrammer",
     description: "Combat, movement, multiplayer, OOP and UI systems for Roblox — by Nitz4r.",
   });
 
@@ -64,7 +64,7 @@ export default function Index() {
         />
 
         <div className="text-terminal text-base sm:text-lg term-glow mb-1">
-          <Typewriter text="Roblox FullStack Programmer" speed={36} delay={900} cursor />
+          <Typewriter text="Roblox Fullstack Programmer" speed={36} delay={900} cursor />
         </div>
         <div className="text-terminal-dim text-xs sm:text-sm mt-2">
           // 3+ years building gameplay systems
