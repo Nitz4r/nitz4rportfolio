@@ -5,8 +5,8 @@ import { usePageMeta } from "@/lib/use-page-meta";
 
 export default function SkillsPage() {
   usePageMeta({
-    title: "Skills // NITZER",
-    description: "Loaded developer modules — Luau, networking, OOP architecture, combat, movement, UI, performance.",
+    title: "Skills // Nitz4r",
+    description: "Loaded developer modules — Luau, networking, OOP architecture, UI, performance.",
   });
 
   return (

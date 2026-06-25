@@ -7,29 +7,22 @@ const CONTACTS = [
   {
     cmd: "connect discord",
     label: "Discord",
-    value: "nitzer",
-    href: "https://discord.com/users/nitzer",
-    copy: "nitzer",
+    value: "nitz4r",
+    href: "https://discord.com/users/nitz4r",
+    copy: "nitz4r",
   },
   {
     cmd: "send email",
     label: "Email",
-    value: "nitzer@dev.station",
-    href: "mailto:nitzer@dev.station",
-    copy: "nitzer@dev.station",
-  },
-  {
-    cmd: "open github",
-    label: "GitHub",
-    value: "github.com/nitzer",
-    href: "https://github.com/nitzer",
-    copy: "https://github.com/nitzer",
+    value: "nitz4r@gmail.com",
+    href: "mailto:nitz4r@gmail.com",
+    copy: "nitz4r@gmail.com",
   },
 ] as const;
 
 export default function ContactPage() {
   usePageMeta({
-    title: "Contact // NITZER",
+    title: "Contact // Nitz4r",
     description: "Initiate connection — Discord, email, GitHub.",
   });
 

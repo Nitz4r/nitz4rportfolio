@@ -147,12 +147,10 @@ export const PROJECTS: Project[] = [
 ];
 
 export const SKILLS = [
-  { name: "LUAU", note: "strict typing, metatables, OOP, performance idioms" },
-  { name: "NETWORKING", note: "prediction, reconciliation, snapshot interpolation" },
+  { name: "LUAU", note: "strict typing, metatables, OOP" },
+  { name: "NETWORKING", note: "prediction, reconciliation, serialization" },
   { name: "OOP ARCHITECTURE", note: "class systems, DI, lifecycle, mixins" },
-  { name: "COMBAT SYSTEMS", note: "hit-reg, archetypes, combo graphs, feedback" },
-  { name: "MOVEMENT SYSTEMS", note: "FSM controllers, input buffering, prediction" },
-  { name: "UI DEVELOPMENT", note: "declarative runtimes, motion, diegetic UI" },
+  { name: "UI DEVELOPMENT", note: "declarative runtimes, smooth effects" },
   { name: "PERFORMANCE OPTIMIZATION", note: "profiling, batching, allocation control" },
-  { name: "TOOLING", note: "Rojo, Wally, GitHub Actions, internal CLIs" },
+  { name: "TOOLING", note: "VSCode, Rojo, Wally, GitHub Actions, Vide (ui), Zap (Networking)" },
 ] as const;
