@@ -3,22 +3,22 @@ import { GlitchHeading } from "@/components/GlitchHeading";
 import { usePageMeta } from "@/lib/use-page-meta";
 
 const PROFILE = [
-  ["Role", "Roblox Gameplay Programmer"], 
+  ["Role", "Roblox Backend/Frontend Programmer"], 
   ["Languages", "Luau (--!strict), CPP (hobby)"],
   ["Workflow", "Rojo · Wally · Git · GitHub"],
   ["Timezone", "GMT +3"],
 ] as const;
 
 const BIO = [
-  "I build the systems players actually feel — the hit that lands clean, the dash that buffers right, the netcode that doesn't betray a good play.",
-  "My work focuses on the layer between engine and design: combat archetypes, movement controllers, replication, and the OOP scaffolding that lets a small team ship a large game without the codebase rotting.",
+  "I enjoy building the systems that power games behind the scenes. Whether it's gameplay features, frameworks, or development tools, I focus on creating code that is practical, scalable, and easy to work with.",
+  "My goal is to build systems that stay maintainable as projects grow, making it easier to add new features and iterate quickly.",
   "I care about strict typing, observable systems, and writing code that another programmer can read at 2am and not curse my name.",
 ];
 
 export default function AboutPage() {
   usePageMeta({
-    title: "About // NITZER",
-    description: "Developer profile — Nitzer, a Roblox gameplay programmer focused on combat, movement, and multiplayer systems.",
+    title: "About // Nitz4r",
+    description: "Developer profile — Nitz4r, a Roblox backend/frontend programmer focused on systems development.",
   });
 
   return (

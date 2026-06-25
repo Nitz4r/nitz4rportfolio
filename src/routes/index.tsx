@@ -17,6 +17,7 @@ const SPECIALIZED = [
   "Movement Systems",
   "Multiplayer Architecture",
   "OOP Frameworks",
+  "Data Store",
   "UI Systems",
 ];
 
@@ -29,8 +30,8 @@ const COMMANDS = [
 
 export default function Index() {
   usePageMeta({
-    title: "NITZER // Roblox Gameplay Programmer",
-    description: "Combat, movement, multiplayer, OOP and UI systems for Roblox — by Nitzer.",
+    title: "Nitz4r // Roblox Programmer",
+    description: "Combat, movement, multiplayer, OOP and UI systems for Roblox — by Nitz4r.",
   });
 
   const [bootStep, setBootStep] = useState(0);
@@ -58,12 +59,12 @@ export default function Index() {
         </div>
 
         <GlitchHeading
-          text="NITZER"
+          text="Nitz4r"
           className="text-6xl sm:text-8xl md:text-9xl mb-4 text-flicker"
         />
 
         <div className="text-terminal text-base sm:text-lg term-glow mb-1">
-          <Typewriter text="Roblox Gameplay Programmer" speed={36} delay={900} cursor />
+          <Typewriter text="Roblox Backend/Frontend Programmer" speed={36} delay={900} cursor />
         </div>
         <div className="text-terminal-dim text-xs sm:text-sm mt-2">
           // 3+ years building gameplay systems

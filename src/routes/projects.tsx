@@ -13,7 +13,7 @@ const statusColor: Record<string, string> = {
 
 export default function ProjectsPage() {
   usePageMeta({
-    title: "Projects // NITZER",
+    title: "Projects // Nitz4r",
     description: "Classified project files — combat, movement, netcode, UI and OOP systems for Roblox.",
   });
 
