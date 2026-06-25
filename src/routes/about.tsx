@@ -5,7 +5,7 @@ import { usePageMeta } from "@/lib/use-page-meta";
 const PROFILE = [
   ["Role", "Roblox Backend/Frontend Programmer"], 
   ["Languages", "Luau (--!strict), CPP (hobby)"],
-  ["Workflow", "Rojo · Wally · Git · GitHub"],
+  ["Workflow", "VSCode · Rojo · Wally · Git · GitHub"],
   ["Timezone", "GMT +3"],
 ] as const;
 
