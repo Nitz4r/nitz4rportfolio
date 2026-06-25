@@ -8,15 +8,15 @@ const CONTACTS = [
     cmd: "connect discord",
     label: "Discord",
     value: "nitz4r",
-    href: "https://discord.com/users/nitz4r",
+    href: "https://discord.com/users/1055195058397249586",
     copy: "nitz4r",
   },
   {
-    cmd: "send email",
-    label: "Email",
-    value: "nitz4r@gmail.com",
-    href: "mailto:nitz4r@gmail.com",
-    copy: "nitz4r@gmail.com",
+    cmd: "roblox account",
+    label: "Roblox",
+    value: "nitz4r",
+    href: "https://www.roblox.com/users/4610066555/profile",
+    copy: "nitz4r",
   },
 ] as const;
 
