@@ -42,13 +42,13 @@ export default function AboutPage() {
           </div>
 
           <div className="mt-8 pt-5 border-t border-border/60">
-            <div className="text-terminal-dim text-xs uppercase tracking-widest mb-3">
+            {/* <div className="text-terminal-dim text-xs uppercase tracking-widest mb-3">
               // philosophy
             </div>
             <blockquote className="text-terminal-bright term-glow text-base italic">
               "ship systems, not features. tools, not snippets."
             </blockquote>
-          </div>
+          </div> */}
         </section>
 
         <aside className="term-panel rounded-sm p-6 h-fit">
