@@ -150,7 +150,7 @@ export const SKILLS = [
   { name: "LUAU", note: "strict typing, metatables, OOP" },
   { name: "NETWORKING", note: "prediction, reconciliation, serialization" },
   { name: "OOP ARCHITECTURE", note: "class systems, DI, lifecycle, mixins" },
-  { name: "UI DEVELOPMENT", note: "declarative runtimes, smooth effects" },
+  { name: "UI DEVELOPMENT", note: "declarative runtimes, scalable UI architecture." },
   { name: "PERFORMANCE OPTIMIZATION", note: "profiling, batching, allocation control" },
   { name: "TOOLING", note: "VSCode, Rojo, Wally, GitHub Actions, Vide (ui), Zap (Networking)" },
 ] as const;
