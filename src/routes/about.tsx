@@ -40,15 +40,6 @@ export default function AboutPage() {
               </p>
             ))}
           </div>
-
-          <div className="mt-8 pt-5 border-t border-border/60">
-            {/* <div className="text-terminal-dim text-xs uppercase tracking-widest mb-3">
-              // philosophy
-            </div>
-            <blockquote className="text-terminal-bright term-glow text-base italic">
-              "ship systems, not features. tools, not snippets."
-            </blockquote>
-          </div> */}
         </section>
 
         <aside className="term-panel rounded-sm p-6 h-fit">
@@ -58,7 +49,7 @@ export default function AboutPage() {
           <pre className="text-[10px] text-terminal leading-tight mb-4 select-none">
 {`     ____
     |    |
-    |  ● |   NITZER
+    |  ● |   NITZ4R
     |____|   dev-station v4
     /||||\\
    //|||| \\`}
