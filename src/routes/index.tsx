@@ -7,7 +7,7 @@ import { usePageMeta } from "@/lib/use-page-meta";
 
 const BOOT = [
   "[ OK ] mounting /dev/portfolio",
-  "[ OK ] loading kernel modules: combat, movement, netcode",
+  "[ OK ] loading kernel modules ...",
   "[ OK ] establishing secure session ...",
   "[ OK ] handshake complete — welcome, visitor.",
 ];
@@ -64,7 +64,7 @@ export default function Index() {
         />
 
         <div className="text-terminal text-base sm:text-lg term-glow mb-1">
-          <Typewriter text="Roblox Backend/Frontend Programmer" speed={36} delay={900} cursor />
+          <Typewriter text="Roblox FullStack Programmer" speed={36} delay={900} cursor />
         </div>
         <div className="text-terminal-dim text-xs sm:text-sm mt-2">
           // 3+ years building gameplay systems
