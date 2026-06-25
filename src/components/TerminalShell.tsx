@@ -1,4 +1,4 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState, type ReactNode } from "react";
 
 const NAV = [
@@ -25,10 +25,9 @@ function Clock() {
 }
 
 export function TerminalShell({ children, path }: { children: ReactNode; path: string }) {
-  const currentPath = useRouterState({ select: (s) => s.location.pathname });
+  const currentPath = useLocation().pathname;
   return (
     <div className="min-h-screen flex flex-col">
-      {/* top bar */}
       <header className="border-b border-border/60 px-4 sm:px-6 py-2 text-[11px] sm:text-xs flex items-center justify-between gap-4 text-terminal-dim">
         <div className="flex items-center gap-3">
           <span className="inline-block w-2 h-2 rounded-full bg-terminal animate-pulse" />
@@ -42,7 +41,6 @@ export function TerminalShell({ children, path }: { children: ReactNode; path: s
         </div>
       </header>
 
-      {/* nav */}
       <nav className="border-b border-border/60 px-4 sm:px-6 py-2 flex flex-wrap gap-x-5 gap-y-1 text-xs sm:text-sm">
         {NAV.map((n) => {
           const active =
