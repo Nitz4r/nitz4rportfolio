@@ -1,3 +1,8 @@
+export type MediaItem =
+  | { type: "image"; src: string; alt?: string; caption?: string }
+  | { type: "youtube"; id: string; title?: string; caption?: string }
+  | { type: "placeholder"; kind: "image" | "video"; label: string };
+
 export interface Project {
   slug: string;
   code: string;
@@ -8,7 +13,7 @@ export interface Project {
   description: string;
   features: string[];
   technologies: string[];
-  media: { type: "image" | "video"; label: string }[];
+  media: MediaItem[];
 }
 
 export const PROJECTS: Project[] = [
@@ -33,7 +38,7 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["Luau", "OOP", "Zap Networker", "Trove", "Vide", "Matter ECS"],
     media: [
-      { type: "video", label: "combo system" },
+      { type: "placeholder", kind: "video", label: "combo system" },
     ],
   },
   {
@@ -54,8 +59,8 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["Luau", "ContextActionService", "Raycast", "PhysicsService"],
     media: [
-      { type: "video", label: "parkour reel" },
-      { type: "image", label: "state machine graph" },
+      { type: "placeholder", kind: "video", label: "parkour reel" },
+      { type: "placeholder", kind: "image", label: "state machine graph" },
     ],
   },
   {
@@ -76,8 +81,8 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["Luau", "RemoteEvents", "UnreliableRemotes", "buffers"],
     media: [
-      { type: "video", label: "lag compensation demo" },
-      { type: "image", label: "tick pipeline" },
+      { type: "placeholder", kind: "video", label: "lag compensation demo" },
+      { type: "placeholder", kind: "image", label: "tick pipeline" },
     ],
   },
   {
@@ -98,8 +103,8 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["Luau --!strict", "metatables", "Janitor"],
     media: [
-      { type: "image", label: "class graph" },
-      { type: "image", label: "DI container API" },
+      { type: "placeholder", kind: "image", label: "class graph" },
+      { type: "placeholder", kind: "image", label: "DI container API" },
     ],
   },
   {
@@ -120,8 +125,8 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["Luau", "Fusion-style", "TweenService", "Signals"],
     media: [
-      { type: "video", label: "HUD reel" },
-      { type: "image", label: "component tree" },
+      { type: "placeholder", kind: "video", label: "HUD reel" },
+      { type: "placeholder", kind: "image", label: "component tree" },
     ],
   },
   {
@@ -141,8 +146,8 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ["Luau", "OOP framework", "behavior trees"],
     media: [
-      { type: "image", label: "tension curve" },
-      { type: "video", label: "wave pacing demo" },
+      { type: "placeholder", kind: "image", label: "tension curve" },
+      { type: "placeholder", kind: "video", label: "wave pacing demo" },
     ],
   },
 ];
