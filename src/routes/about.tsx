@@ -3,13 +3,10 @@ import { GlitchHeading } from "@/components/GlitchHeading";
 import { usePageMeta } from "@/lib/use-page-meta";
 
 const PROFILE = [
-  ["Role", "Roblox Gameplay Programmer"],
-  ["Focus", "Combat · Movement · Multiplayer Systems"],
-  ["Experience", "Professional Roblox Development"],
-  ["Languages", "Luau (--!strict), TypeScript, Rust (hobby)"],
-  ["Workflow", "Rojo · Wally · Git · GitHub Actions"],
-  ["Timezone", "UTC ±0  · async-friendly"],
-  ["Status", "Open for select contract work"],
+  ["Role", "Roblox Gameplay Programmer"], 
+  ["Languages", "Luau (--!strict), CPP (hobby)"],
+  ["Workflow", "Rojo · Wally · Git · GitHub"],
+  ["Timezone", "GMT +3"],
 ] as const;
 
 const BIO = [
