@@ -275,8 +275,8 @@
 /* CodeViewer (shiki) — keep terminal aesthetic, allow horizontal scroll */
 .cv-host {
   font-family: var(--font-mono);
-  font-size: inherit;
-  line-height: 1.55;
+  font-size: 12.5px;
+  line-height: 1.45;
   tab-size: 2;
   -moz-tab-size: 2;
   counter-reset: cv-line;
@@ -286,26 +286,30 @@
   background: transparent !important;
   margin: 0;
   padding: 0;
-  font-family: inherit;
-  font-size: inherit;
+  font: inherit;
   line-height: inherit;
-  white-space: pre;
   tab-size: inherit;
+  /* code element handles whitespace per-line; collapse the \n between .line blocks */
+  white-space: normal;
 }
 .cv-host code {
-  font-family: inherit;
-  font-size: inherit;
+  font: inherit;
   line-height: inherit;
-  background: transparent;
-  white-space: pre;
   tab-size: inherit;
+  background: transparent;
   display: block;
+  /* collapse the literal newlines shiki inserts between <span class="line"> blocks */
+  white-space: normal;
 }
 .cv-host .line {
   display: block;
-  min-height: 1.55em;
-  line-height: 1.55;
+  font: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  min-height: 1.45em;
   white-space: pre;
+  tab-size: inherit;
 }
 /* line-number gutter rendered by each .line itself — guarantees 1:1 alignment */
 .cv-with-gutter .line {
@@ -324,5 +328,7 @@
   color: color-mix(in oklab, var(--terminal) 45%, transparent);
   user-select: none;
   font-variant-numeric: tabular-nums;
+  line-height: inherit;
 }
+
 
