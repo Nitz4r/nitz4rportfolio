@@ -242,10 +242,10 @@ export const PROJECTS: Project[] = [
       "Role: live ops scripter",
     features: [
       "data store",
-      "progresssion system",
+      "progression system",
       "pvp queue system",
       "offline earning",
-      "gamepass/developer product system",
+      "gamepass/dev-product system",
     ],
     technologies: ["Luau", "OOP", "Trove", "Rojo", "Wally", ],
     media: [
