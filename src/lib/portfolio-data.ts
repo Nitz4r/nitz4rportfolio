@@ -46,7 +46,7 @@ export const PROJECTS: Project[] = [
     slug: "combat-system",
     code: "PRJ-001",
     name: "Combat System",
-    status: "COMPLETE",
+    status: "ACTIVE",
     classification: "showcase",
     summary:
       "Hit-reg, weapon archetype, combo system, block/parry, state management system and weapon abilities.",
@@ -74,11 +74,11 @@ export const PROJECTS: Project[] = [
     ],
   },
 
-   {
+  {
     slug: "movement-system",
     code: "PRJ-002",
     name: "Movement System",
-    status: "COMPLETE",
+    status: "PROTOTYPE",
     classification: "showcase",
     summary:
       "dash, climb, slide, custom shiftlock, directional movement, and a state management system for movement.",
@@ -129,6 +129,36 @@ export const PROJECTS: Project[] = [
         url: "https://youtu.be/XO2AMPquThA",
         title: "ragdoll system",
         caption: "ragdoll system showcase",
+      },
+    ],
+  },
+
+  {
+    slug: "swimming-system",
+    code: "PRJ-004",
+    name: "Swimming System",
+    status: "ARCHIVED",
+    classification: "showcase",
+    summary:
+      "A physics-based swimming system with realistic buoyancy",
+    description:
+      "A custom swimming system built to integrate seamlessly with the character controller and movement framework. It replaces the default swimming behavior with configurable movement, animation, and state transitions, providing consistent traversal across water-based environments while remaining easy to extend.",
+    features: [
+      "Custom water detection and state transitions",
+      "Directional swimming controls",
+      "Surface and underwater movement",
+      "Integrated movement state machine",
+      "Buoyancy and configurable movement physics",
+      "Smooth transitions between land and water",
+      "Extensible water interaction framework",
+    ],
+    technologies: ["Luau", "OOP", "Rojo", "Wally", "Trove", "Zone Plus" ],
+    media: [
+      {
+        type: "youtube",
+        url: "https://youtu.be/aTTa5b_oZYU",
+        title: "swimming system",
+        caption: "swimming system showcase",
       },
     ],
   },
