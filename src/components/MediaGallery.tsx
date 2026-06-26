@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import type { MediaItem } from "@/lib/portfolio-data";
+import { CodeViewer } from "@/components/CodeViewer";
 import {
-  codeEmbedUrl,
   iconGlyph,
   inferLinkIcon,
   mediaLabel,
