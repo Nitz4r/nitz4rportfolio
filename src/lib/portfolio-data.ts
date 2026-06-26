@@ -70,6 +70,13 @@ export const PROJECTS: Project[] = [
         title: "Combo System Demo",
         caption: "A demonstration of the combo system in action.",
       },
+
+      {
+        type: "code",
+        title: "Timer",
+        source: "pastebin",
+        url: "https://pastebin.com/j3B2vy5Q",
+      }
     ],
   },
 ];
