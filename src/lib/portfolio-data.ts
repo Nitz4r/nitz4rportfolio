@@ -181,7 +181,7 @@ export const PROJECTS: Project[] = [
     features: [
       "strict typing",
     ],
-    technologies: ["Luau", "OOP", "Trove", "Rojo", "Wally", ],
+    technologies: ["Luau", "OOP", "Trove", "Signal", ],
     media: [
       {
         type: "code",
