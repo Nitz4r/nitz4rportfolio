@@ -1,5 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
 import type { MediaItem } from "@/lib/portfolio-data";
+import {
+  codeEmbedUrl,
+  iconGlyph,
+  inferLinkIcon,
+  mediaLabel,
+  safeHostname,
+  youtubeEmbedUrl,
+  youtubeThumb,
+} from "@/lib/media-utils";
 
 type Props = {
   items: MediaItem[];
@@ -37,34 +46,31 @@ export function MediaGallery({ items }: Props) {
 
   if (!items.length) return null;
 
-  const openable = current.type === "image";
+  const caption = getCaption(current);
+  const expandable = current.type === "image";
 
   return (
     <div className="space-y-3">
       <div className="relative term-border rounded-sm overflow-hidden bg-black">
         <div className="relative aspect-video w-full">
-          <MediaFrame
-            item={current}
-            onOpen={() => openable && setLightbox(true)}
-          />
+          <MediaFrame item={current} onOpen={() => expandable && setLightbox(true)} />
 
           {items.length > 1 && (
             <>
               <NavButton side="left" onClick={() => go(-1)} label="previous" />
               <NavButton side="right" onClick={() => go(1)} label="next" />
               <div className="absolute top-2 left-2 text-[10px] text-terminal-dim bg-black/60 px-1.5 py-0.5 rounded-sm">
-                {safeActive + 1} / {items.length}
+                {safeActive + 1} / {items.length} · {mediaLabel(current)}
               </div>
             </>
           )}
         </div>
 
-        {(current.type === "image" || current.type === "youtube") &&
-          current.caption && (
-            <div className="border-t border-border/60 px-3 py-1.5 text-[11px] text-terminal-dim">
-              // {current.caption}
-            </div>
-          )}
+        {caption && (
+          <div className="border-t border-border/60 px-3 py-1.5 text-[11px] text-terminal-dim">
+            // {caption}
+          </div>
+        )}
       </div>
 
       {items.length > 1 && (
@@ -83,6 +89,9 @@ export function MediaGallery({ items }: Props) {
               }`}
             >
               <Thumbnail item={m} />
+              <span className="absolute bottom-0 right-0 text-[8px] leading-none px-1 py-0.5 bg-black/70 text-terminal-dim tracking-wider">
+                {mediaLabel(m)}
+              </span>
             </button>
           ))}
         </div>
@@ -98,6 +107,12 @@ export function MediaGallery({ items }: Props) {
       )}
     </div>
   );
+}
+
+function getCaption(item: MediaItem): string | undefined {
+  if ("caption" in item && item.caption) return item.caption;
+  if (item.type === "link" && item.description) return item.description;
+  return undefined;
 }
 
 function MediaFrame({ item, onOpen }: { item: MediaItem; onOpen: () => void }) {
@@ -121,11 +136,14 @@ function MediaFrame({ item, onOpen }: { item: MediaItem; onOpen: () => void }) {
       </button>
     );
   }
+
   if (item.type === "youtube") {
+    const src = youtubeEmbedUrl(item.url);
+    if (!src) return <LinkCard url={item.url} title={item.title ?? "YouTube video"} icon="youtube" />;
     return (
       <iframe
         className="absolute inset-0 w-full h-full"
-        src={`https://www.youtube-nocookie.com/embed/${item.id}?rel=0&modestbranding=1`}
+        src={src}
         title={item.title ?? "YouTube video"}
         loading="lazy"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -133,37 +151,184 @@ function MediaFrame({ item, onOpen }: { item: MediaItem; onOpen: () => void }) {
       />
     );
   }
+
+  if (item.type === "video") {
+    return (
+      <video
+        controls
+        preload="metadata"
+        poster={item.poster}
+        src={item.src}
+        className="absolute inset-0 w-full h-full bg-black object-contain"
+      />
+    );
+  }
+
+  if (item.type === "code") {
+    return <CodeFrame item={item} />;
+  }
+
+  if (item.type === "link") {
+    return (
+      <LinkCard
+        url={item.url}
+        title={item.title}
+        description={item.description}
+        icon={inferLinkIcon(item.url, item.icon)}
+      />
+    );
+  }
+
   return <Placeholder kind={item.kind} label={item.label} />;
+}
+
+function CodeFrame({ item }: { item: Extract<MediaItem, { type: "code" }> }) {
+  const embed = codeEmbedUrl(item);
+  if (!embed) {
+    return (
+      <ResourceCard
+        title={item.title}
+        platform={`${item.source}${item.language ? ` · ${item.language}` : ""}`}
+        host={safeHostname(item.url)}
+        url={item.url}
+        glyph="</>"
+        cta="Open Resource"
+      />
+    );
+  }
+  return (
+    <div className="absolute inset-0 bg-black">
+      <iframe
+        src={embed}
+        title={item.title}
+        loading="lazy"
+        sandbox="allow-scripts allow-same-origin allow-popups"
+        className="absolute inset-0 w-full h-full bg-white"
+      />
+      <a
+        href={item.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute top-2 right-2 text-[10px] text-terminal-bright term-border bg-black/80 px-2 py-1 rounded-sm hover:border-terminal"
+      >
+        [ OPEN ↗ ] {item.source}
+      </a>
+    </div>
+  );
+}
+
+function LinkCard({
+  url,
+  title,
+  description,
+  icon,
+}: {
+  url: string;
+  title: string;
+  description?: string;
+  icon: ReturnType<typeof inferLinkIcon>;
+}) {
+  return (
+    <ResourceCard
+      title={title}
+      platform={description}
+      host={safeHostname(url)}
+      url={url}
+      glyph={iconGlyph(icon)}
+      cta="Open Link"
+    />
+  );
+}
+
+function ResourceCard({
+  title,
+  platform,
+  host,
+  url,
+  glyph,
+  cta,
+}: {
+  title: string;
+  platform?: string;
+  host: string;
+  url: string;
+  glyph: string;
+  cta: string;
+}) {
+  return (
+    <div
+      className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 gap-3"
+      style={{
+        backgroundImage:
+          "repeating-linear-gradient(45deg, color-mix(in oklab, var(--terminal) 5%, transparent) 0 6px, transparent 6px 12px)",
+      }}
+    >
+      <div className="text-terminal text-3xl font-mono tracking-widest">{glyph}</div>
+      <div className="text-terminal-bright text-base sm:text-lg font-medium max-w-md truncate">
+        {title}
+      </div>
+      {platform && (
+        <div className="text-terminal-dim text-[11px] uppercase tracking-widest">{platform}</div>
+      )}
+      <div className="text-terminal-dim text-xs">// {host}</div>
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-1 text-sm text-terminal-bright term-border px-3 py-1.5 rounded-sm bg-black/70 hover:border-terminal hover:shadow-[0_0_10px_color-mix(in_oklab,var(--terminal)_35%,transparent)] transition-all"
+      >
+        [ {cta} ↗ ]
+      </a>
+    </div>
+  );
 }
 
 function Thumbnail({ item }: { item: MediaItem }) {
   if (item.type === "image") {
-    return (
-      <img
-        src={item.src}
-        alt=""
-        className="w-full h-full object-cover"
-        loading="lazy"
-      />
-    );
+    return <img src={item.src} alt="" className="w-full h-full object-cover" loading="lazy" />;
   }
   if (item.type === "youtube") {
+    const thumb = youtubeThumb(item.url);
     return (
       <div className="relative w-full h-full">
-        <img
-          src={`https://i.ytimg.com/vi/${item.id}/mqdefault.jpg`}
-          alt=""
-          className="w-full h-full object-cover"
-          loading="lazy"
-        />
+        {thumb && (
+          <img src={thumb} alt="" className="w-full h-full object-cover" loading="lazy" />
+        )}
         <div className="absolute inset-0 flex items-center justify-center text-terminal-bright text-lg bg-black/30">
           ▶
         </div>
       </div>
     );
   }
+  if (item.type === "video") {
+    return (
+      <div className="relative w-full h-full bg-black">
+        {item.poster && (
+          <img src={item.poster} alt="" className="w-full h-full object-cover opacity-70" />
+        )}
+        <div className="absolute inset-0 flex items-center justify-center text-terminal-bright text-lg">
+          ▶
+        </div>
+      </div>
+    );
+  }
+  if (item.type === "code") {
+    return (
+      <div className="w-full h-full flex items-center justify-center text-terminal font-mono text-sm bg-black/60">
+        {"</>"}
+      </div>
+    );
+  }
+  if (item.type === "link") {
+    return (
+      <div className="w-full h-full flex items-center justify-center text-terminal font-mono text-xs bg-black/60">
+        {iconGlyph(inferLinkIcon(item.url, item.icon))}
+      </div>
+    );
+  }
   return (
-    <div className="w-full h-full flex items-center justify-center text-terminal text-base"
+    <div
+      className="w-full h-full flex items-center justify-center text-terminal text-base"
       style={{
         backgroundImage:
           "repeating-linear-gradient(45deg, color-mix(in oklab, var(--terminal) 6%, transparent) 0 4px, transparent 4px 8px)",
