@@ -14,8 +14,13 @@ export type MediaItem =
   | {
       type: "code";
       title: string;
-      source: "gist" | "pastebin" | "raw";
-      url: string;
+      source: "gist" | "pastebin" | "raw" | "inline";
+      /** Pretty source URL (e.g. a Gist page). */
+      url?: string;
+      /** Direct raw-text URL. Derived from `url` when omitted. */
+      rawUrl?: string;
+      /** Inline source code. Used when omitting url/rawUrl. */
+      code?: string;
       language?: string;
       caption?: string;
     }
@@ -183,6 +188,7 @@ export const PROJECTS: Project[] = [
         source: "gist",
         url: "https://gist.github.com/Nitz4r/3e3c03d4b343b0079ba2e8bacc707087",
         title: "oop implementation",
+        language: "luau",
         caption: "",
       },
     ],

@@ -270,3 +270,25 @@
   );
   animation: scan 8s linear infinite;
 }
+
+/* CodeViewer (shiki) — keep terminal aesthetic, allow horizontal scroll */
+.cv-host pre,
+.cv-host .cv-pre {
+  background: transparent !important;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.55;
+  white-space: pre;
+  tab-size: 2;
+}
+.cv-host code {
+  font-family: inherit;
+  background: transparent;
+  white-space: pre;
+}
+.cv-host .line {
+  display: block;
+  min-height: 1.55em;
+}
