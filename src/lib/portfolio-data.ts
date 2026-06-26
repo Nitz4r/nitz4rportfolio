@@ -201,7 +201,7 @@ export const PROJECTS: Project[] = [
     status: "COMPLETE",
     classification: "Published Game",
     summary:
-      "7M visits",
+      "7M+ visits",
     description:
       "Role: full game scripter",
     features: [
@@ -232,12 +232,12 @@ export const PROJECTS: Project[] = [
 
   {
     slug: "incremental piece",
-    code: "PRJ-006",
+    code: "PRJ-007",
     name: "incremental piece",
-    status: "COMPLETE",
+    status: "ACTIVE",
     classification: "Published Game",
     summary:
-      "7M visits",
+      "385K+ visits",
     description:
       "Role: live ops scripter",
     features: [
