@@ -106,6 +106,7 @@
 
   ::-webkit-scrollbar { width: 8px; height: 8px; }
   ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-corner { background: transparent; }
   ::-webkit-scrollbar-thumb {
     background: color-mix(in oklab, var(--terminal) 30%, transparent);
     border-radius: 0;
