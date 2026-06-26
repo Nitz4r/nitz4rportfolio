@@ -67,16 +67,9 @@ export const PROJECTS: Project[] = [
       {
         type: "youtube",
         url: "https://www.youtube.com/watch?v=OtBNEGcjqEw",
-        title: "Combo System Demo",
-        caption: "A demonstration of the combo system in action.",
+        title: "combat system",
+        caption: "A demonstration of the combat system in action, showcasing various mechanics and abilities.",
       },
-
-      {
-        type: "code",
-        title: "Timer",
-        source: "pastebin",
-        url: "https://pastebin.com/j3B2vy5Q",
-      }
     ],
   },
 ];
