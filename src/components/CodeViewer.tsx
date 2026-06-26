@@ -240,6 +240,3 @@ export function CodeViewer({
     </div>
   );
 }
-
-// keep lineCount referenced for gutter width sizing only
-void 0 as unknown as typeof gutterWidth;
