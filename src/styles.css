@@ -273,6 +273,14 @@
 }
 
 /* CodeViewer (shiki) — keep terminal aesthetic, allow horizontal scroll */
+.cv-host {
+  font-family: var(--font-mono);
+  font-size: inherit;
+  line-height: 1.55;
+  tab-size: 2;
+  -moz-tab-size: 2;
+  counter-reset: cv-line;
+}
 .cv-host pre,
 .cv-host .cv-pre {
   background: transparent !important;
@@ -280,16 +288,41 @@
   padding: 0;
   font-family: inherit;
   font-size: inherit;
-  line-height: 1.55;
+  line-height: inherit;
   white-space: pre;
-  tab-size: 2;
+  tab-size: inherit;
 }
 .cv-host code {
   font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
   background: transparent;
   white-space: pre;
+  tab-size: inherit;
+  display: block;
 }
 .cv-host .line {
   display: block;
   min-height: 1.55em;
+  line-height: 1.55;
+  white-space: pre;
 }
+/* line-number gutter rendered by each .line itself — guarantees 1:1 alignment */
+.cv-with-gutter .line {
+  counter-increment: cv-line;
+  padding-left: calc(var(--cv-gutter, 3ch) + 2.25rem);
+  position: relative;
+}
+.cv-with-gutter .line::before {
+  content: counter(cv-line);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(var(--cv-gutter, 3ch) + 1rem);
+  padding-right: 0.75rem;
+  text-align: right;
+  color: color-mix(in oklab, var(--terminal) 45%, transparent);
+  user-select: none;
+  font-variant-numeric: tabular-nums;
+}
+

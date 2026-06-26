@@ -226,25 +226,15 @@ export function CodeViewer({
         )}
 
         {!error && source != null && (
-          <div className="flex items-start min-w-full w-max">
-            {showLineNumbers && (
-              <pre
-                aria-hidden
-                className="select-none text-right text-terminal-dim/70 py-3 pl-3 pr-3 border-r border-border/40 sticky left-0 bg-black/80 backdrop-blur-sm"
-                style={{ minWidth: `calc(${gutterWidth} + 1.5rem)` }}
-              >
-                {Array.from({ length: lineCount }, (_, i) => (
-                  <span key={i} className="block leading-[1.55]">
-                    {i + 1}
-                  </span>
-                ))}
-              </pre>
-            )}
-            <div
-              className="cv-host py-3 pl-4 pr-6 flex-1 min-w-0"
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
-          </div>
+          <div
+            className={`cv-host py-3 pr-6 ${showLineNumbers ? "cv-with-gutter" : "pl-4"}`}
+            style={
+              showLineNumbers
+                ? ({ ["--cv-gutter" as string]: gutterWidth } as React.CSSProperties)
+                : undefined
+            }
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
         )}
       </div>
     </div>
