@@ -194,6 +194,38 @@ export const PROJECTS: Project[] = [
     ],
   },
 
+   {
+    slug: "save a brainrot",
+    code: "PRJ-006",
+    name: "save a brainrot",
+    status: "COMPLETE",
+    classification: "Published Game",
+    summary:
+      "7M visits",
+    description:
+      "",
+    features: [
+      "admin abuse",
+    ],
+    technologies: ["Luau", "OOP", "Trove", ],
+    media: [
+      {
+        type: "link",
+        url: "https://www.roblox.com/games/82617807484833/Save-a-Brainrot?gameSetTypeId=100000003&homePageSessionInfo=36d17e05-934c-4dd2-8a4d-706d53457649&isAd=false&numberOfLoadedTiles=146&page=homePage&placeId=82617807484833&playContext=homePage&position=9&positionInRow=0.6999999999999993&rowOnPage=2&sortPos=1&universeId=8745271367",
+        title: "save a brainrot",
+        icon: "roblox",
+      },
+
+      {
+        type: "image",
+        src: "https://tr.rbxcdn.com/180DAY-21fa7ca413a22b421961cbc0a4d8afea/768/432/Image/Webp/noFilter",
+        alt: "save a brainrot",
+        caption: "save a brainrot",
+      },
+
+    ],
+  },
+
 ];
 
 export const SKILLS = [
