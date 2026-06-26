@@ -28,8 +28,8 @@ export function youtubeThumb(url: string): string | null {
 
 /** Returns an embeddable iframe URL for code sources, or null when not embeddable. */
 export function codeEmbedUrl(item: Extract<MediaItem, { type: "code" }>): string | null {
+  if (!item.url) return null;
   if (item.source === "gist") {
-    // GitHub Gist supports an iframe-friendly preview via the `.pibb` suffix.
     try {
       const u = new URL(item.url);
       if (!u.hostname.includes("gist.github.com")) return null;
