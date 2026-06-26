@@ -84,7 +84,6 @@ export const PROJECTS: Project[] = [
     description:
       "A modular ragdoll framework designed for extensibility and long-term maintainability",
     features: [
-      "Modular ragdoll archetypes with composable behaviors",
       "Realistic joint constraints and collision handling",
       "Dynamic responses to external forces",
       "State management for ragdoll flow",
