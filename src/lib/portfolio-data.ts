@@ -164,9 +164,9 @@ export const PROJECTS: Project[] = [
   },
 
   {
-    slug: "swimming-system",
-    code: "PRJ-004",
-    name: "Swimming System",
+    slug: "oop-script-sample",
+    code: "PRJ-005",
+    name: "OOP Script Sample",
     status: "COMPLETE",
     classification: "script sample",
     summary:
