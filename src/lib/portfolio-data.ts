@@ -47,7 +47,7 @@ export const PROJECTS: Project[] = [
     code: "PRJ-001",
     name: "Combat System",
     status: "COMPLETE",
-    classification: "core-system",
+    classification: "show case",
     summary:
       "Hit-reg, weapon archetype, combo system, block/parry, state management system and weapon abilities.",
     description:
