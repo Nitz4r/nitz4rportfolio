@@ -9,7 +9,7 @@ const BOOT = [
   "[ OK ] mounting /dev/portfolio",
   "[ OK ] loading kernel modules ...",
   "[ OK ] establishing secure session ...",
-  "[ OK ] handshake complete — welcome, visitor.",
+  "[ OK ] handshake complete ... welcome, visitor.",
 ];
 
 const SPECIALIZED = [

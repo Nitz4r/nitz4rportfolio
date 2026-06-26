@@ -68,8 +68,7 @@ export function TerminalShell({ children, path }: { children: ReactNode; path: s
       </main>
 
       <footer className="border-t border-border/60 px-4 sm:px-6 py-2 text-[11px] text-terminal-dim flex items-center justify-between">
-        <span>// nitz4r.dev — roblox gameplay programmer</span>
-        <span className="hidden sm:inline">build 2026.06.24 · ttyS0 · 115200 baud</span>
+        <span>// nitz4r.dev — roblox fullstack programmer</span>
         <span className="text-terminal">●  ONLINE</span>
       </footer>
     </div>
