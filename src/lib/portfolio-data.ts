@@ -162,6 +162,32 @@ export const PROJECTS: Project[] = [
       },
     ],
   },
+
+  {
+    slug: "swimming-system",
+    code: "PRJ-004",
+    name: "Swimming System",
+    status: "COMPLETE",
+    classification: "script sample",
+    summary:
+      "oop script sample.",
+    description:
+      "oop script sample.",
+    features: [
+      "strict typing",
+    ],
+    technologies: ["Luau", "OOP", "Trove", "Rojo", "Wally", ],
+    media: [
+      {
+        type: "code",
+        source: "gist",
+        url: "https://gist.github.com/Nitz4r/3e3c03d4b343b0079ba2e8bacc707087",
+        title: "oop implementation",
+        caption: "",
+      },
+    ],
+  },
+
 ];
 
 export const SKILLS = [
