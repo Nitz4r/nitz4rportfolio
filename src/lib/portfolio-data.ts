@@ -263,9 +263,10 @@ export const PROJECTS: Project[] = [
         caption: "incremental piece",
       },
 
-       {
-        type: "video",
-        src: "https://www.roblox.com/9d369d1a-0f14-4c1c-ae57-97869201e26b",
+      {
+        type: "image",
+        src: "https://tr.rbxcdn.com/180DAY-b79ac4fbe4cb86439bc5567a7549137f/768/432/Image/Webp/noFilter",
+        alt: "incremental piece",
         caption: "incremental piece",
       },
 
