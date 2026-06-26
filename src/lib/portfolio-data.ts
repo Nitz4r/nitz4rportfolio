@@ -95,7 +95,7 @@ export const PROJECTS: Project[] = [
     media: [
       {
         type: "youtube",
-        url: "https://www.youtube.com/watch?v=OtBNEGcjqEw",
+        url: "https://youtu.be/XO2AMPquThA",
         title: "ragdoll system",
         caption: "A showcase of the ragdoll system.",
       },
