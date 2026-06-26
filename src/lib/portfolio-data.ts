@@ -62,7 +62,7 @@ export const PROJECTS: Project[] = [
       "Cooldown and resource management",
       "Status effects and temporary modifiers",
     ],
-    technologies: ["Luau", "OOP", "Zap Networker", "Trove", "Vide", "Matter ECS"],
+    technologies: ["Luau", "OOP", "Vide", "Trove", "Matter ECS", "Zap Networker", ],
     media: [
       {
         type: "youtube",
