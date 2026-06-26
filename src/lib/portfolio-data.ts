@@ -247,7 +247,7 @@ export const PROJECTS: Project[] = [
       "offline earning",
       "gamepass/dev-product system",
     ],
-    technologies: ["Luau", "OOP", "Trove", "Rojo", "Wally", ],
+    technologies: ["Luau", "OOP", "Trove", "Rojo", "Wally", "Profile Store" ],
     media: [
       {
         type: "link",
