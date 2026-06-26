@@ -62,13 +62,13 @@ export const PROJECTS: Project[] = [
       "Cooldown and resource management",
       "Status effects and temporary modifiers",
     ],
-    technologies: ["Luau", "OOP", "Vide", "Trove", "Matter ECS", "Zap Networker", ],
+    technologies: ["Luau", "OOP", "Rojo", "Wally" ,"Vide", "Trove", "Matter ECS", "Zap Networker", ],
     media: [
       {
         type: "youtube",
         url: "https://www.youtube.com/watch?v=OtBNEGcjqEw",
         title: "combat system",
-        caption: "A demonstration of the combat system in action, showcasing various mechanics and abilities.",
+        caption: "A demonstration of the combat system, showcasing various mechanics and abilities.",
       },
     ],
   },
@@ -82,6 +82,6 @@ export const SKILLS = [
   { name: "PERFORMANCE OPTIMIZATION", note: "profiling, batching, allocation control" },
   {
     name: "TOOLING",
-    note: "VSCode, Rojo, Wally, GitHub Actions, Matter ECS, Vide (ui), Zap (Networking)",
+    note: "VSCode, Rojo, Wally, GitHub, Matter ECS, Vide (ui), Zap (Networking)",
   },
 ] as const;
