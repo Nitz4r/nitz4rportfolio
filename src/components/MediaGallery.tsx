@@ -183,36 +183,17 @@ function MediaFrame({ item, onOpen }: { item: MediaItem; onOpen: () => void }) {
 }
 
 function CodeFrame({ item }: { item: Extract<MediaItem, { type: "code" }> }) {
-  const embed = codeEmbedUrl(item);
-  if (!embed) {
-    return (
-      <ResourceCard
-        title={item.title}
-        platform={`${item.source}${item.language ? ` · ${item.language}` : ""}`}
-        host={safeHostname(item.url)}
-        url={item.url}
-        glyph="</>"
-        cta="Open Resource"
-      />
-    );
-  }
   return (
-    <div className="absolute inset-0 bg-black">
-      <iframe
-        src={embed}
+    <div className="absolute inset-0 p-2 bg-black">
+      <CodeViewer
+        code={item.code}
+        sourceUrl={item.url}
+        rawUrl={item.rawUrl}
         title={item.title}
-        loading="lazy"
-        sandbox="allow-scripts allow-same-origin allow-popups"
-        className="absolute inset-0 w-full h-full bg-white"
+        language={item.language}
+        maxHeight="100%"
+        className="h-full"
       />
-      <a
-        href={item.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="absolute top-2 right-2 text-[10px] text-terminal-bright term-border bg-black/80 px-2 py-1 rounded-sm hover:border-terminal"
-      >
-        [ OPEN ↗ ] {item.source}
-      </a>
     </div>
   );
 }
