@@ -14,8 +14,13 @@ export type MediaItem =
   | {
       type: "code";
       title: string;
-      source: "gist" | "pastebin" | "raw";
-      url: string;
+      source: "gist" | "pastebin" | "raw" | "inline";
+      /** Pretty source URL (e.g. a Gist page). */
+      url?: string;
+      /** Direct raw-text URL. Derived from `url` when omitted. */
+      rawUrl?: string;
+      /** Inline source code. Used when omitting url/rawUrl. */
+      code?: string;
       language?: string;
       caption?: string;
     }
