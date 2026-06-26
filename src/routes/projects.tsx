@@ -14,16 +14,16 @@ const statusColor: Record<string, string> = {
 export default function ProjectsPage() {
   usePageMeta({
     title: "Projects // Nitz4r",
-    description: "Classified project files — combat, movement, netcode, UI and OOP systems for Roblox.",
+    description: "Classified project files: combat, movement, netcode, UI and OOP systems for Roblox.",
   });
 
   return (
     <TerminalShell path="/projects">
       <div className="mb-8">
         <div className="text-terminal-dim text-xs mb-2">$ ls /classified/projects</div>
-        <GlitchHeading as="h1" text="PROJECT FILES" className="text-3xl sm:text-5xl mb-3" />
+        <GlitchHeading as="h1" text="PROJECTS" className="text-3xl sm:text-5xl mb-3" />
         <p className="text-terminal-dim text-sm max-w-2xl">
-          // {PROJECTS.length} entries · classification: public-release · last sync: today
+          // {PROJECTS.length} entries · last sync: today
         </p>
       </div>
 

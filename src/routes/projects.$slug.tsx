@@ -11,7 +11,7 @@ export default function ProjectDetail() {
   const p = PROJECTS.find((x) => x.slug === slug);
 
   usePageMeta({
-    title: p ? `${p.name} // NITZER` : "Project // NITZER",
+    title: p ? `${p.name} // NITZ4R` : "Project // NITZ4R",
     description: p?.summary ?? "Project dossier.",
   });
 
@@ -85,8 +85,7 @@ export default function ProjectDetail() {
               <Row k="id" v={p.code} />
               <Row k="status" v={p.status} />
               <Row k="class" v={p.classification} />
-              <Row k="author" v="nitzer" />
-              <Row k="access" v="public" />
+              <Row k="author" v="nitz4r" />
             </dl>
           </Section>
         </aside>
