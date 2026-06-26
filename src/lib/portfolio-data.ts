@@ -72,6 +72,35 @@ export const PROJECTS: Project[] = [
       },
     ],
   },
+
+  {
+    slug: "ragdoll-system",
+    code: "PRJ-002",
+    name: "Ragdoll System",
+    status: "COMPLETE",
+    classification: "showcase",
+    summary:
+      "A physics-based ragdoll system with realistic joint constraints, collision handling, and dynamic responses to forces.",
+    description:
+      "A modular ragdoll framework designed for extensibility and long-term maintainability",
+    features: [
+      "Modular ragdoll archetypes with composable behaviors",
+      "Realistic joint constraints and collision handling",
+      "Dynamic responses to external forces",
+      "State management for ragdoll flow",
+      "Data-driven ragdoll configuration",
+      "Shared framework for players and NPCs",
+    ],
+    technologies: ["Luau", "OOP", "Rojo", "Wally", "Trove", ],
+    media: [
+      {
+        type: "youtube",
+        url: "https://www.youtube.com/watch?v=OtBNEGcjqEw",
+        title: "ragdoll system",
+        caption: "A showcase of the ragdoll system.",
+      },
+    ],
+  },
 ];
 
 export const SKILLS = [

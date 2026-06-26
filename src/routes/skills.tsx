@@ -12,7 +12,7 @@ export default function SkillsPage() {
   return (
     <TerminalShell path="/skills">
       <div className="mb-8">
-        <div className="text-terminal-dim text-xs mb-2">$ lsmod --user nitzer</div>
+        <div className="text-terminal-dim text-xs mb-2">$ lsmod --user nitz4r</div>
         <GlitchHeading as="h1" text="LOADED MODULES" className="text-3xl sm:text-5xl mb-3" />
         <p className="text-terminal-dim text-sm">
           // {SKILLS.length} modules loaded · 0 failures · uptime: years

@@ -31,7 +31,7 @@ export function TerminalShell({ children, path }: { children: ReactNode; path: s
       <header className="border-b border-border/60 px-4 sm:px-6 py-2 text-[11px] sm:text-xs flex items-center justify-between gap-4 text-terminal-dim">
         <div className="flex items-center gap-3">
           <span className="inline-block w-2 h-2 rounded-full bg-terminal animate-pulse" />
-          <span className="text-terminal term-glow">NITZER@dev-station</span>
+          <span className="text-terminal term-glow">nitz4r@dev-station</span>
           <span className="hidden sm:inline">::</span>
           <span className="hidden sm:inline">{path}</span>
         </div>
@@ -68,7 +68,7 @@ export function TerminalShell({ children, path }: { children: ReactNode; path: s
       </main>
 
       <footer className="border-t border-border/60 px-4 sm:px-6 py-2 text-[11px] text-terminal-dim flex items-center justify-between">
-        <span>// nitzer.dev — roblox gameplay programmer</span>
+        <span>// nitz4r.dev — roblox gameplay programmer</span>
         <span className="hidden sm:inline">build 2026.06.24 · ttyS0 · 115200 baud</span>
         <span className="text-terminal">●  ONLINE</span>
       </footer>
