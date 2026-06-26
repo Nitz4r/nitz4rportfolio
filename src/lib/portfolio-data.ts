@@ -76,7 +76,7 @@ export const PROJECTS: Project[] = [
 
    {
     slug: "movement-system",
-    code: "PRJ-001",
+    code: "PRJ-002",
     name: "Movement System",
     status: "COMPLETE",
     classification: "showcase",
@@ -107,7 +107,7 @@ export const PROJECTS: Project[] = [
 
   {
     slug: "ragdoll-system",
-    code: "PRJ-002",
+    code: "PRJ-003",
     name: "Ragdoll System",
     status: "COMPLETE",
     classification: "showcase",
