@@ -199,7 +199,7 @@ export const PROJECTS: Project[] = [
     code: "PRJ-006",
     name: "save a brainrot",
     status: "COMPLETE",
-    classification: "Published Game",
+    classification: "published game",
     summary:
       "7M+ visits",
     description:
@@ -235,7 +235,7 @@ export const PROJECTS: Project[] = [
     code: "PRJ-007",
     name: "incremental piece",
     status: "ACTIVE",
-    classification: "Published Game",
+    classification: "published game",
     summary:
       "385K+ visits",
     description:
