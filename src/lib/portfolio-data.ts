@@ -188,6 +188,7 @@ export const PROJECTS: Project[] = [
         source: "gist",
         url: "https://gist.github.com/Nitz4r/3e3c03d4b343b0079ba2e8bacc707087",
         title: "oop implementation",
+        language: "luau",
         caption: "",
       },
     ],
