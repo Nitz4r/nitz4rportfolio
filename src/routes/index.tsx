@@ -30,8 +30,8 @@ const COMMANDS = [
 
 export default function Index() {
   usePageMeta({
-    title: "Nitz4r // Roblox FullstackProgrammer",
-    description: "Combat, movement, multiplayer, OOP and UI systems for Roblox — by Nitz4r.",
+    title: "nitz4r // Roblox Fullstack Programmer",
+    description: "Combat, movement, multiplayer, OOP and UI systems for Roblox — by nitz4r.",
   });
 
   const [bootStep, setBootStep] = useState(0);
@@ -59,7 +59,7 @@ export default function Index() {
         </div>
 
         <GlitchHeading
-          text="Nitz4r"
+          text="nitz4r"
           className="text-6xl sm:text-8xl md:text-9xl mb-4 text-flicker"
         />
 
